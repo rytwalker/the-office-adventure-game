@@ -1,5 +1,5 @@
-# Write a class to hold player information, e.g. what room they are in
-# currently.
+from termcolor import colored, cprint
+from data.text import text
 
 
 class Player():
@@ -10,10 +10,9 @@ class Player():
         self.moved = True
 
     def init_player(self):
-        print('Welcome to Scranton Business Park!')
-        print('Is it your first day at Dunder Mifflin?')
+        print(text['intro'])
         self.name = input('\nWhat\'s your name? \n> ')
-        print(f"\nWe're glad to have you here {self.name}!")
+        cprint(f"\nThat's it... {self.name}!", 'green')
 
     def print_item_names(self):
         if len(self.items) == 0:

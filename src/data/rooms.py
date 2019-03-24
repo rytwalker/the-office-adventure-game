@@ -1,10 +1,8 @@
 from room import Room
 rooms = {
     'outside':  Room("Outside Scranton Business Park",
-                     '''1725 Slouh Ave. Scranton, PA 45342. North of you, is
-                        the main enterance'''),
-    'fun_run':  Room("""Michael Scott's Dunder Mifflin Scranton Meredith Palmer
-    Memorial Celebrity Rabies Awareness Pro-Am Fun Run Race For The Cure""",
+                     '''1725 Slouh Ave. Scranton, PA 45342. North of you, is the main enterance'''),
+    'fun_run':  Room("""Michael Scott's Dunder Mifflin Scranton Meredith Palmer Memorial Celebrity Rabies Awareness Pro-Am Fun Run Race For The Cure""",
                      "A race to cure rabbies."),
 
     'lobby':    Room("Lobby", """To the west is Hank's cafe. To the north is a

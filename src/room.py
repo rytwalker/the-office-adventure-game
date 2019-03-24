@@ -20,8 +20,8 @@ class Room():
 
     def __repr__(self):
         line = '\n\n'+30*'-'+'\n\n'
-        s_items = f"{self.name}\n{self.description}\n{self._print_items()}"
-        s_no = f"{self.name}\n{self.description}\nThis room has no items."
+        s_items = f"{self.name}\n\n{self.description}\n\n{self._print_items()}"
+        s_no = f"{self.name}\n\n{self.description}\n\nThis room has no items."
 
         if self._has_items():
             return f"{line}{s_items}{line}"
