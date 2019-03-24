@@ -19,7 +19,7 @@ class Room():
         return f'items: {itms}'
 
     def __repr__(self):
-        line = '\n'+30*'-'+'\n'
+        line = '\n\n'+30*'-'+'\n\n'
         s_items = f"{self.name}\n{self.description}\n{self._print_items()}"
         s_no = f"{self.name}\n{self.description}\nThis room has no items."
 

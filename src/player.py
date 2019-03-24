@@ -7,6 +7,7 @@ class Player():
         self.current_room = current_room
         self.items = []
         self.happiness = 1
+        self.prev_room = current_room
 
     def print_item_names(self):
         if len(self.items) == 0:

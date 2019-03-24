@@ -36,7 +36,8 @@ print(f"We're glad to have you here {player.name}!")
 # game loop
 while True:
     # Display current room, desc, items
-    print(player.current_room)
+    if player.current_room == player.prev_room:
+        print(player.current_room)
 
     # User enters a command
     user_input = input('What do you want to do?\n> ').lower().split(' ')
@@ -65,6 +66,7 @@ while True:
             print(f"inventory: {player.print_item_names()}")
             continue
         # else handle as direction
+        player.prev_room = player.current_room
         player.current_room = try_direction(user_input[0], player.current_room)
 
     if player.happiness <= 0:
