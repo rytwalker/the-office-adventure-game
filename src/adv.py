@@ -1,3 +1,4 @@
+import os
 from room import Room
 from player import Player
 from item import Item
@@ -23,20 +24,15 @@ def try_direction(direction, current_room):
         print('You can\'t go that way. Try a different direction.')
         return current_room
 
-# Make a new player object that is currently in the 'outside' room.
-
 
 # Init a new player to play the game
 player = Player(rooms['outside'])
-print('Welcome to Scranton Business Park!')
-print('Is it your first day at Dunder Mifflin?')
-player.name = input('What\'s your name? \n> ')
-print(f"We're glad to have you here {player.name}!")
+player.init_player()
 
 # game loop
 while True:
     # Display current room, desc, items
-    if player.current_room == player.prev_room:
+    if player.moved:
         print(player.current_room)
 
     # User enters a command
@@ -46,12 +42,16 @@ while True:
     if len(user_input) == 2:
         # pick up an item
         if user_input[0] == 'get' or user_input[0] == 'take':
+            player.moved = False
             player.get_item(user_input[1])
         # drop an item
         elif user_input[0] == 'drop':
+            player.moved = False
             player.drop_item(user_input[1])
         # go to a new room
         elif user_input[0] == 'go':
+            player.moved = True
+            os.system("clear")
             player.current_room = try_direction(
                 user_input[1][0], player.current_room)
 
@@ -63,10 +63,12 @@ while True:
             break
         # hanlde view inventory
         if user_input[0] == 'i' or user_input[0] == 'inventory':
+            player.moved = False
             print(f"inventory: {player.print_item_names()}")
             continue
         # else handle as direction
-        player.prev_room = player.current_room
+        player.moved = True
+        os.system("clear")
         player.current_room = try_direction(user_input[0], player.current_room)
 
     if player.happiness <= 0:
