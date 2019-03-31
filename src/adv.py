@@ -67,7 +67,7 @@ while True:
     elif len(user_input) == 1:
         # quit game
         if user_input[0] == 'q':
-            print('You left the game, game over!\n')
+            print('Thank you for playing! See you next time!\n')
             break
         # hanlde view inventory
         if user_input[0] == 'i' or user_input[0] == 'inventory':
